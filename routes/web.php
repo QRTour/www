@@ -23,5 +23,8 @@ Route::get('qrcode', function () {
 
 
 Route::get('qrcode-url', function () {
-     return QrCode::errorCorrection('M')->size(5000)->generate('https://qrtour.com/link/1234567890');
+     echo '<img src="data:image/png;base64, '.base64_encode(QrCode::format('png')->errorCorrection('H')->merge('/resources/imgs/logo-trans.png', .2)->size(2000)->generate('https://qrt.to/b')). '" />';
+//     echo '<img src="data:image/png;base64, '.base64_encode(QrCode::format('png')->errorCorrection('H')->merge('/resources/imgs/logo.png', .243)->size(2000)->generate('https://qrt.to/b')). '" />';
+//     echo '<img src="data:image/png;base64, '.base64_encode(QrCode::format('png')->errorCorrection('H')->merge('/resources/imgs/logo2.png', .243)->size(2000)->generate('https://qrt.to/bY8')). '" />';
+//      return QrCode::size(500)->generate('https://qrt.to/bY8');
 });
